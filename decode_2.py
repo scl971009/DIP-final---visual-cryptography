@@ -18,9 +18,9 @@ def decode(filename1, filename2):
     third = Image.new("1", (int(first.size[0]/3), int(first.size[1]/3)))
     t_pixels = third.load()
 
-    count=0
     for i in range(third.size[0]):
         for j in range(third.size[1]):
+            count=0
             if  (f_pixels[3*i  , 3*j  ] * s_pixels[3*i  ,3*j  ])==0:
               count=count+1
             if  (f_pixels[3*i  , 3*j+1] * s_pixels[3*i  ,3*j+1])==0:
