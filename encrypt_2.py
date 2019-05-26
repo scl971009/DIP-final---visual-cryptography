@@ -55,24 +55,19 @@ def encrypt(filename1, filename2, filename_s):
 			if original_s1_pixels[i, j] != 0 and original_s2_pixels[i, j] !=0 and se_pixels[i, j] != 0:
 				bc = get_random(seq, 4)
 				wc = [x for x in seq if x not in bc]
-				bb = get_random(bc, 3)
-				wb = [x for x in seq if x not in bb]
-				for k in bb:
-					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 0
-				for k in wb:
-					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 1
+				
 				for k in bc:
 					m, n = setk(k)
+					s1_pixels[i * 3 + m, j * 3 + n] = 0
 					s2_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wc:
 					m, n = setk(k)
+					s1_pixels[i * 3 + m, j * 3 + n] = 1
 					s2_pixels[i * 3 + m, j * 3 + n] = 1
 			elif original_s1_pixels[i, j] != 0 and original_s2_pixels[i, j] != 0 and se_pixels[i, j] == 0:
 				bc = get_random(seq, 4)
 				wc = [x for x in seq if x not in bc]
-				bb = get_random(wc, 3)
+				bb = get_random(wc, 4)
 				wb = [x for x in seq if x not in bb]
 				for k in bb:
 					m, n = setk(k)
@@ -89,7 +84,7 @@ def encrypt(filename1, filename2, filename_s):
 			elif original_s1_pixels[i, j] == 0 and original_s2_pixels[i, j] !=0 and se_pixels[i, j] != 0:
 				bb = get_random(seq, 6)
 				wb = [x for x in seq if x not in bb]
-				bc = get_random(bb, 3)
+				bc = get_random(bb, 4)
 				wc = [x for x in seq if x not in bc]
 				for k in bb:
 					m, n = setk(k)
@@ -106,7 +101,9 @@ def encrypt(filename1, filename2, filename_s):
 			elif original_s1_pixels[i, j] == 0 and original_s2_pixels[i, j] !=0 and se_pixels[i, j] == 0:
 				bb = get_random(seq, 6)
 				wb = [x for x in seq if x not in bb]
-				bc = get_random(wb, 3)
+				bc = get_random(bb, 1)
+				for x in wb:
+					bc.append(x)
 				wc = [x for x in seq if x not in bc]
 				for k in bb:
 					m, n = setk(k)
@@ -123,7 +120,7 @@ def encrypt(filename1, filename2, filename_s):
 			elif original_s1_pixels[i, j] != 0 and original_s2_pixels[i, j] == 0 and se_pixels[i, j] != 0:
 				bc = get_random(seq, 6)
 				wc = [x for x in seq if x not in bc]
-				bb = get_random(bc, 3)
+				bb = get_random(bc, 4)
 				wb = [x for x in seq if x not in bb]
 				for k in bb:
 					m, n = setk(k)
@@ -140,7 +137,9 @@ def encrypt(filename1, filename2, filename_s):
 			elif original_s1_pixels[i, j] != 0 and original_s2_pixels[i, j] == 0 and se_pixels[i, j] == 0:
 				bc = get_random(seq, 6)
 				wc = [x for x in seq if x not in bc]
-				bb = get_random(wc, 3)
+				bb = get_random(bc, 1)
+				for x in wc:
+					bb.append(x)
 				wb = [x for x in seq if x not in bb]
 				for k in bb:
 					m, n = setk(k)
@@ -174,16 +173,16 @@ def encrypt(filename1, filename2, filename_s):
 				wc = [x for x in seq if x not in bc]
 				for k in bb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 1
+					s1_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 0
+					s1_pixels[i * 3 + m, j * 3 + n] = 1
 				for k in bc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 1
+					s2_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 0
+					s2_pixels[i * 3 + m, j * 3 + n] = 1
 	share1.save("share1.png")
 	share2.save("share2.png")
 
