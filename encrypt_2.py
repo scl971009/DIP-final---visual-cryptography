@@ -33,12 +33,15 @@ def setk(k):
 
 def encrypt(filename1, filename2, filename_s):
 	original_share1 = Image.open(filename1)
+	original_share1 = original_share1.convert("1")
 	original_s1_pixels = original_share1.load()
 
 	original_share2 = Image.open(filename2)
+	original_share2 = original_share2.convert("1")
 	original_s2_pixels = original_share2.load()
 
 	secret = Image.open(filename_s)
+	secret = secret.convert("1")
 	se_pixels = secret.load()
 
 	share1 = Image.new("1", (original_share1.size[0] * 3, original_share1.size[1] * 3))
