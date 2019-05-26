@@ -27,7 +27,7 @@ def decode(filename1, filename2):
 
             
 
-    third.save("result.png")
+    third.save("result_1.png")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
