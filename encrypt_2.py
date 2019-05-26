@@ -56,16 +56,16 @@ def encrypt(filename1, filename2, filename_s):
 				wb = [x for x in seq if x not in bb]
 				for k in bb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 1
+					s1_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 0
+					s1_pixels[i * 3 + m, j * 3 + n] = 1
 				for k in bc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 1
+					s2_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 0
+					s2_pixels[i * 3 + m, j * 3 + n] = 1
 			elif original_s1_pixels[i, j] != 0 and original_s2_pixels[i, j] != 0 and se_pixels[i, j] == 0:
 				bc = get_random(seq, 4)
 				wc = [x for x in seq if x not in bc]
@@ -73,16 +73,16 @@ def encrypt(filename1, filename2, filename_s):
 				wb = [x for x in seq if x not in bb]
 				for k in bb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 1
+					s1_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 0
+					s1_pixels[i * 3 + m, j * 3 + n] = 1
 				for k in bc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 1
+					s2_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 0
+					s2_pixels[i * 3 + m, j * 3 + n] = 1
 			elif original_s1_pixels[i, j] == 0 and original_s2_pixels[i, j] !=0 and se_pixels[i, j] != 0:
 				bb = get_random(seq, 6)
 				wb = [x for x in seq if x not in bb]
@@ -90,16 +90,16 @@ def encrypt(filename1, filename2, filename_s):
 				wc = [x for x in seq if x not in bc]
 				for k in bb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 1
+					s1_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 0
+					s1_pixels[i * 3 + m, j * 3 + n] = 1
 				for k in bc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 1
+					s2_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 0 
+					s2_pixels[i * 3 + m, j * 3 + n] = 1
 			elif original_s1_pixels[i, j] == 0 and original_s2_pixels[i, j] !=0 and se_pixels[i, j] == 0:
 				bb = get_random(seq, 6)
 				wb = [x for x in seq if x not in bb]
@@ -107,16 +107,16 @@ def encrypt(filename1, filename2, filename_s):
 				wc = [x for x in seq if x not in bc]
 				for k in bb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 1
+					s1_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 0
+					s1_pixels[i * 3 + m, j * 3 + n] = 1
 				for k in bc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 1
+					s2_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 0
+					s2_pixels[i * 3 + m, j * 3 + n] = 1
 			elif original_s1_pixels[i, j] != 0 and original_s2_pixels[i, j] == 0 and se_pixels[i, j] != 0:
 				bc = get_random(seq, 6)
 				wc = [x for x in seq if x not in bc]
@@ -124,16 +124,16 @@ def encrypt(filename1, filename2, filename_s):
 				wb = [x for x in seq if x not in bb]
 				for k in bb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 1
+					s1_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 0
+					s1_pixels[i * 3 + m, j * 3 + n] = 1
 				for k in bc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 1
+					s2_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 0
+					s2_pixels[i * 3 + m, j * 3 + n] = 1
 			elif original_s1_pixels[i, j] != 0 and original_s2_pixels[i, j] == 0 and se_pixels[i, j] == 0:
 				bc = get_random(seq, 6)
 				wc = [x for x in seq if x not in bc]
@@ -141,27 +141,27 @@ def encrypt(filename1, filename2, filename_s):
 				wb = [x for x in seq if x not in bb]
 				for k in bb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 1
+					s1_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 0
+					s1_pixels[i * 3 + m, j * 3 + n] = 1
 				for k in bc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 1
+					s2_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wc:
 					m, n = setk(k)
-					s2_pixels[i * 3 + m, j * 3 + n] = 0
+					s2_pixels[i * 3 + m, j * 3 + n] = 1
 			elif original_s1_pixels[i, j] == 0 and original_s2_pixels[i, j] == 0 and se_pixels[i, j] != 0:
 				bb = get_random(seq, 6)
 				wb = [x for x in seq if x not in bb]
 				for k in bb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 1
-					s2_pixels[i * 3 + m, j * 3 + n] = 1
+					s1_pixels[i * 3 + m, j * 3 + n] = 0
+					s2_pixels[i * 3 + m, j * 3 + n] = 0
 				for k in wb:
 					m, n = setk(k)
-					s1_pixels[i * 3 + m, j * 3 + n] = 0
-					s2_pixels[i * 3 + m, j * 3 + n] = 0					
+					s1_pixels[i * 3 + m, j * 3 + n] = 1
+					s2_pixels[i * 3 + m, j * 3 + n] = 1					
 			else:
 				bb = get_random(seq, 6)
 				wb = [x for x in seq if x not in bb]
