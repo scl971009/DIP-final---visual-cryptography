@@ -18,17 +18,27 @@ def decode(filename1, filename2):
     third = Image.new("1", (int(first.size[0]/3), int(first.size[1]/3)))
     t_pixels = third.load()
 
+    count=0
     for i in range(third.size[0]):
         for j in range(third.size[1]):
-            count=(f_pixels[3*i  , 3*j  ] or s_pixels[3*i  ,3*j  ]) + \
-                  (f_pixels[3*i  , 3*j+1] or s_pixels[3*i  ,3*j+1]) + \
-                  (f_pixels[3*i  , 3*j+2] or s_pixels[3*i  ,3*j+2]) + \
-                  (f_pixels[3*i+1, 3*j  ] or s_pixels[3*i+1,3*j  ]) + \
-                  (f_pixels[3*i+1, 3*j+1] or s_pixels[3*i+1,3*j+1]) + \
-                  (f_pixels[3*i+1, 3*j+2] or s_pixels[3*i+1,3*j+2]) + \
-                  (f_pixels[3*i+2, 3*j  ] or s_pixels[3*i+2,3*j  ]) + \
-                  (f_pixels[3*i+2, 3*j+1] or s_pixels[3*i+2,3*j+1]) + \
-                  (f_pixels[3*i+2, 3*j+2] or s_pixels[3*i+2,3*j+2])
+            if  (f_pixels[3*i  , 3*j  ] * s_pixels[3*i  ,3*j  ])==0:
+              count=count+1
+            if  (f_pixels[3*i  , 3*j+1] * s_pixels[3*i  ,3*j+1])==0:
+              count=count+1
+            if  (f_pixels[3*i  , 3*j+2] * s_pixels[3*i  ,3*j+2])==0:
+              count=count+1
+            if  (f_pixels[3*i+1, 3*j  ] * s_pixels[3*i+1,3*j  ])==0:
+              count=count+1
+            if  (f_pixels[3*i+1, 3*j+1] * s_pixels[3*i+1,3*j+1])==0:
+              count=count+1
+            if  (f_pixels[3*i+1, 3*j+2] * s_pixels[3*i+1,3*j+2])==0:
+              count=count+1
+            if  (f_pixels[3*i+2, 3*j  ] * s_pixels[3*i+2,3*j  ])==0:
+              count=count+1
+            if  (f_pixels[3*i+2, 3*j+1] * s_pixels[3*i+2,3*j+1])==0:
+              count=count+1
+            if  (f_pixels[3*i+2, 3*j+2] * s_pixels[3*i+2,3*j+2])==0:
+              count=count+1
 
 
             if count>=7:
