@@ -86,70 +86,57 @@ def decode(filename1, filename2,filename3):
       for j in range(decode.size[1]):
           # list_R
           list1=[]
-          list2=[]
-          value=s1_pixels[i*3,j*3][0]
-          value2=0
+
+          value=s1_pixels[i*3+2,j*3+2][0]
+          #print(value)
           for k in range(8):
-            if s1_pixels[i*3+k/3,j*3+k%3][0]==value:
+            if s1_pixels[i*3+k%3,j*3+k/3][0]!=value:
               list1.append(k+1)
-            else:
-              list2.append(k+1)
-              value2=s1_pixels[i*3+k/3,j*3+k%3][0]
-          
+          #  print(s1_pixels[i*3+k%3,j*3+k/3][0])
           list_R=[]
-          if value-value2<0 or value-value2==2:
-            for x in list2:
-              list_R.append(x)
-          else:
-            for x in list1:
-              list_R.append(x)
+          for x in list1:
+            list_R.append(x)
           
           list1.clear()
-          list2.clear()
+
           #print(list_R)
 
-          value=s2_pixels[i*3,j*3][1]
-          value2=0
+          # list_G
+
+          value=s2_pixels[i*3+2,j*3+2][1]
+
           for k in range(8):
-            if s2_pixels[i*3+k/3,j*3+k%3][1]==value:
+            if s2_pixels[i*3+k%3,j*3+k/3][1]!=value:
               list1.append(k+1)
-            else:
-              list2.append(k+1)
-              value2=s2_pixels[i*3+k/3,j*3+k%3][1]
+ 
           list_G=[]
-          if value-value2<0 or value-value2==2:
-            for x in list2:
-              list_G.append(x)
-          else:
-            for x in list1:
-              list_G.append(x)
-
+          for x in list1:
+            list_G.append(x)
+          
           list1.clear()
-          list2.clear()
-         # print(list_G)
 
-          value=s3_pixels[i*3,j*3][2]
-          value2=0
+              # list_B
+
+          value=s3_pixels[i*3+2,j*3+2][2]
+
           for k in range(8):
-            if s3_pixels[i*3+k/3,j*3+k%3][2]==value:
+            if s3_pixels[i*3+k%3,j*3+k/3][2]!=value:
               list1.append(k+1)
-            else:
-              list2.append(k+1)
-              value2=s3_pixels[i*3+k/3,j*3+k%3][2]
+ 
           list_B=[]
-          if value-value2<0 or value-value2==2:
-            for x in list2:
-              list_B.append(x)
-          else:
-            for x in list1:
-              list_B.append(x)
+          for x in list1:
+            list_B.append(x)
+          
           list1.clear()
-          list2.clear()
           #print(list_B)
+          #print("listR=",list_R)
+          #rint("listG=",list_G)
+          #print("listB=",list_B)
           d_pixels[i,j]=(binary_decode(list_R),binary_decode(list_G),binary_decode(list_B))
           #print(d_pixels[i,j])
 
-          #return
+
+              
             
 
     decode.save("result_4.png")
