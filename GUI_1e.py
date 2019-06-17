@@ -21,7 +21,7 @@ if __name__ == '__main__':
                         self.master.FM1.fm11.secret_txt = Label(self.master.FM1.fm11, text="機密圖")
                         self.master.FM1.fm11.secret_txt.pack(side=LEFT)
                         self.master.FM1.fm11.path = Label(self.master.FM1.fm11)
-                        self.master.FM1.fm11.path.pack(side=LEFT)
+                        #self.master.FM1.fm11.path.pack(side=LEFT)
                         self.master.FM1.fm11.button = Button(self.master.FM1.fm11)
                         self.master.FM1.fm11.button["text"] = "選擇檔案"
                         self.master.FM1.fm11.button["command"] = self.choose_input
@@ -151,6 +151,7 @@ if __name__ == '__main__':
                         
                         
         root = tk.Tk()
+        root.title("加密1")
         app = Application(root)
         root.mainloop()
 

@@ -124,15 +124,18 @@ if __name__ == '__main__':
                                     t_pixels[i,j] = 255
                                 else:
                                     t_pixels[i,j] = 0
-                        
+                        
+
                         self.master.FM3.fm32.image = third
-                        width, height = third.size
+                        width, height = third.size
+
                         width1, height1 = first.size
                         height1 = 320*height1//width1
                         resized1 = third.resize((height1*width//height, height1),Image.ANTIALIAS)
                         imgr1 = ImageTk.PhotoImage(resized1)
                         self.master.FM3.fm31.share2.configure(image=imgr1)
-                        self.master.FM3.fm31.share2.image=imgr1
+                        self.master.FM3.fm31.share2.image=imgr1
+
 
                 def save(self):
                         image = self.master.FM3.fm32.image
@@ -142,6 +145,7 @@ if __name__ == '__main__':
                         
                         
         root = tk.Tk()
+        root.title("解密1")
         app = Application(root)
         root.mainloop()
 
