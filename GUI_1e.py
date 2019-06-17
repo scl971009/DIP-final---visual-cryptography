@@ -84,6 +84,7 @@ if __name__ == '__main__':
                 def make_output(self):
                         print("OUTPUT")
                         original = Image.open(self.master.FM1.fm11.path.text)
+                        original = original.convert("1")
                         o_pixels = original.load()
                         first = Image.new("1", (original.size[0], original.size[1] * 2))
                         f_pixels = first.load()
@@ -95,25 +96,25 @@ if __name__ == '__main__':
                                 for j in range(original.size[1]):
                                     if o_pixels[i,j] == 0:
                                         if random.randint(0, 1):
-                                            f_pixels[i,j * 2    ] = 1
+                                            f_pixels[i,j * 2    ] = 255
                                             f_pixels[i,j * 2 + 1] = 0
                                             s_pixels[i,j * 2    ] = 0
-                                            s_pixels[i,j * 2 + 1] = 1
+                                            s_pixels[i,j * 2 + 1] = 255
                                         else:
                                             f_pixels[i,j * 2    ] = 0
-                                            f_pixels[i,j * 2 + 1] = 1
-                                            s_pixels[i,j * 2    ] = 1
+                                            f_pixels[i,j * 2 + 1] = 255
+                                            s_pixels[i,j * 2    ] = 255
                                             s_pixels[i,j * 2 + 1] = 0
                                     else:
                                         if random.randint(0, 1):
                                             f_pixels[i,j * 2    ] = 0
-                                            f_pixels[i,j * 2 + 1] = 1
+                                            f_pixels[i,j * 2 + 1] = 255
                                             s_pixels[i,j * 2    ] = 0
-                                            s_pixels[i,j * 2 + 1] = 1
+                                            s_pixels[i,j * 2 + 1] = 255
                                         else:
-                                            f_pixels[i,j * 2    ] = 1
+                                            f_pixels[i,j * 2    ] = 255
                                             f_pixels[i,j * 2 + 1] = 0
-                                            s_pixels[i,j * 2    ] = 1
+                                            s_pixels[i,j * 2    ] = 255
                                             s_pixels[i,j * 2 + 1] = 0
                         width, height = original.size
                         height = 320*height//width
