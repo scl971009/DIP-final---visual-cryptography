@@ -49,7 +49,9 @@ if __name__ == '__main__':
                         self.master.FM2.fm22.pack(side=TOP, fill=BOTH, expand=YES)
                         self.master.FM2.fm22.button = Button(self.master.FM2.fm22)
                         self.master.FM2.fm22.button["text"]="儲存分享圖1"
+                        self.master.FM2.fm22.button["command"]=self.save_1
                         self.master.FM2.fm22.button.pack(side=RIGHT)
+                        self.master.FM2.fm22.real = Label(self.master.FM2.fm22)
 
 
                         self.master.FM3 = Frame(self.master)
@@ -64,7 +66,9 @@ if __name__ == '__main__':
                         self.master.FM3.fm32.pack(side=TOP, fill=BOTH, expand=YES)
                         self.master.FM3.fm32.button = Button(self.master.FM3.fm32)
                         self.master.FM3.fm32.button["text"]="儲存分享圖2"
+                        self.master.FM3.fm32.button["command"]=self.save_2
                         self.master.FM3.fm32.button.pack(side=RIGHT)
+                        self.master.FM3.fm32.real = Label(self.master.FM3.fm32)
                         
 
                 def choose_input(self):
@@ -82,7 +86,7 @@ if __name__ == '__main__':
                         self.master.FM1.fm12.imagelabel.image=imgr
 
                 def make_output(self):
-                        print("OUTPUT")
+                        #print("OUTPUT")
                         original = Image.open(self.master.FM1.fm11.path.text)
                         original = original.convert("1")
                         o_pixels = original.load()
@@ -116,6 +120,10 @@ if __name__ == '__main__':
                                             f_pixels[i,j * 2 + 1] = 0
                                             s_pixels[i,j * 2    ] = 255
                                             s_pixels[i,j * 2 + 1] = 0
+                        
+                        self.master.FM2.fm22.image = first
+                        #first.save("test.png")
+                        self.master.FM3.fm32.image = second
                         width, height = original.size
                         height = 320*height//width
                         width1, height1 = first.size
@@ -128,6 +136,19 @@ if __name__ == '__main__':
                         imgr2 = ImageTk.PhotoImage(resized2)
                         self.master.FM3.fm31.share2.configure(image=imgr2)
                         self.master.FM3.fm31.share2.image=imgr2
+
+                def save_1(self):
+                        image = self.master.FM2.fm22.image
+                        default_dir = r"\Users\scl971009\Desktop\desktop\DIP\final project\DIP-final---visual-cryptography"
+                        toSave = tkinter.filedialog.asksaveasfile(mode='wb',defaultextension='.png')
+                        image.save(toSave)
+
+                def save_2(self):
+                        image = self.master.FM3.fm32.image
+                        default_dir = r"\Users\scl971009\Desktop\desktop\DIP\final project\DIP-final---visual-cryptography"
+                        toSave = tkinter.filedialog.asksaveasfile(mode='wb',defaultextension='.png')
+                        image.save(toSave)
+                        
                         
         root = tk.Tk()
         app = Application(root)
