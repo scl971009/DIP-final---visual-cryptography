@@ -6,6 +6,15 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import tkinter.filedialog
 
+def binary_decode(list_binary):
+ 
+    num=0
+ # print("in binary",list_binary)
+    for k in list_binary:
+        num = num + (1<<(k-1))
+  #  print(k,binary_1<<(k-1),num)
+    return num
+
 
 if __name__ == '__main__':
 
@@ -89,7 +98,7 @@ if __name__ == '__main__':
                         self.master.FM1.fm11.path.text=fname
                         img = Image.open(fname)
                         width, height = img.size
-                        img = img.convert("1")
+                        img = img.convert("RGB")
                         resized = img.resize((320, 320*height//width),Image.ANTIALIAS)
                         imgr = ImageTk.PhotoImage(resized)
                         self.master.FM1.fm12.imagelabel.configure(image=imgr)
@@ -103,7 +112,7 @@ if __name__ == '__main__':
                         self.master.FM2.fm21.path.text=fname
                         img = Image.open(fname)
                         width, height = img.size
-                        img = img.convert("1")
+                        img = img.convert("RGB")
                         resized = img.resize((320, 320*height//width),Image.ANTIALIAS)
                         imgr = ImageTk.PhotoImage(resized)
                         self.master.FM2.fm22.imagelabel.configure(image=imgr)
@@ -112,51 +121,45 @@ if __name__ == '__main__':
                 def make_output(self):
                         #print("OUTPUT")
                         first = Image.open(self.master.FM1.fm11.path.text)
-                        first.convert("1")
-                        f_pixels = first.load()
+                        first.convert("RGB")
+                        s1_pixels = first.load()
                         
                         second = Image.open(self.master.FM2.fm21.path.text)
-                        second.convert("1")
-                        s_pixels = second.load()
+                        second.convert("RGB")
+                        s2_pixels = second.load()
     
-                        third = Image.new("1", (int(first.size[0]/3), int(first.size[1]/3)))
-                        t_pixels = third.load()
-
-                        for i in range(third.size[0]):
-                            for j in range(third.size[1]):
-                                count=0
-                                if  (f_pixels[3*i  , 3*j  ] * s_pixels[3*i  ,3*j  ])==0:
-                                    count=count+1
-                                if  (f_pixels[3*i  , 3*j+1] * s_pixels[3*i  ,3*j+1])==0:
-                                    count=count+1
-                                if  (f_pixels[3*i  , 3*j+2] * s_pixels[3*i  ,3*j+2])==0:
-                                    count=count+1
-                                if  (f_pixels[3*i+1, 3*j  ] * s_pixels[3*i+1,3*j  ])==0:
-                                    count=count+1
-                                if  (f_pixels[3*i+1, 3*j+1] * s_pixels[3*i+1,3*j+1])==0:
-                                    count=count+1
-                                if  (f_pixels[3*i+1, 3*j+2] * s_pixels[3*i+1,3*j+2])==0:
-                                    count=count+1
-                                if  (f_pixels[3*i+2, 3*j  ] * s_pixels[3*i+2,3*j  ])==0:
-                                    count=count+1
-                                if  (f_pixels[3*i+2, 3*j+1] * s_pixels[3*i+2,3*j+1])==0:
-                                    count=count+1
-                                if  (f_pixels[3*i+2, 3*j+2] * s_pixels[3*i+2,3*j+2])==0:
-                                    count=count+1
+                        decode = Image.new("RGB", (int(first.size[0]/3), int(first.size[1]/3)))
+                        d_pixels = decode.load()
 
 
-                                if count>=7:
-                                    t_pixels[i,j] = 0
-                                else:
-                                    t_pixels[i,j] = 255
+                        for i in range(decode.size[0]):
+                            for j in range(decode.size[1]):
+          # get RGB value
+                                RGB=[0,0,0]
+
+                                for r in range(3):
+                                    list1=[]
+
+                                    value1=s1_pixels[i*3+2,j*3+2][r]
+                                    value2=s2_pixels[i*3+2,j*3+2][r]
+
+                                    for k in range(8):
+                                        if (s1_pixels[i*3+k%3,j*3+k/3][r]!=value1) and (s2_pixels[i*3+k%3,j*3+k/3][r]!=value2):
+                                            list1.append(k+1)
+
+                                    RGB[r]=binary_decode(list1)
+
+                                d_pixels[i,j]=(RGB[0],RGB[1],RGB[2])
+
+                        
                         
 
-                        self.master.FM3.fm32.image = third
-                        width, height = third.size
+                        self.master.FM3.fm32.image = decode
+                        width, height = decode.size
 
                         width1, height1 = first.size
                         height1 = 320*height1//width1
-                        resized1 = third.resize((height1*width//height, height1),Image.ANTIALIAS)
+                        resized1 = decode.resize((height1*width//height, height1),Image.ANTIALIAS)
                         imgr1 = ImageTk.PhotoImage(resized1)
                         self.master.FM3.fm31.share2.configure(image=imgr1)
                         self.master.FM3.fm31.share2.image=imgr1
@@ -170,7 +173,7 @@ if __name__ == '__main__':
                         
                         
         root = tk.Tk()
-        root.title("解密2")
+        root.title("解密3")
         app = Application(root)
         root.mainloop()
 

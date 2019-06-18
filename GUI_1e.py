@@ -25,7 +25,7 @@ if __name__ == '__main__':
                         self.master.FM1.fm11.button = Button(self.master.FM1.fm11)
                         self.master.FM1.fm11.button["text"] = "選擇檔案"
                         self.master.FM1.fm11.button["command"] = self.choose_input
-                        self.master.FM1.fm11.button.pack(side=LEFT)
+                        self.master.FM1.fm11.button.pack(side=RIGHT)
                         self.master.FM1.fm12 = Frame(self.master.FM1)
                         self.master.FM1.fm12.pack(side=TOP, fill=BOTH, expand=YES)
                         self.master.FM1.fm12.imagelabel = Label(self.master.FM1.fm12)
@@ -39,10 +39,13 @@ if __name__ == '__main__':
 
                         self.master.FM2 = Frame(self.master)
                         self.master.FM2.pack(side=LEFT, fill = BOTH, expand=YES)
+                        self.master.FM2.fm20 = Frame(self.master.FM2)
+                        self.master.FM2.fm20.pack(side=TOP, fill=BOTH, expand=YES)
+                        self.master.FM2.fm20.share1_txt = Label(self.master.FM2.fm20, text="分享圖1")
+                        self.master.FM2.fm20.share1_txt.pack(side=LEFT)
                         self.master.FM2.fm21 = Frame(self.master.FM2)
                         self.master.FM2.fm21.pack(side=TOP, fill=BOTH, expand=YES)
-                        self.master.FM2.fm21.share1_txt = Label(self.master.FM2.fm21, text="分享圖1")
-                        self.master.FM2.fm21.share1_txt.pack(side=TOP)
+                        
                         self.master.FM2.fm21.share1 = Label(self.master.FM2.fm21)
                         self.master.FM2.fm21.share1.pack(side=TOP)
                         self.master.FM2.fm22 = Frame(self.master.FM2)
@@ -56,10 +59,13 @@ if __name__ == '__main__':
 
                         self.master.FM3 = Frame(self.master)
                         self.master.FM3.pack(side=LEFT, fill=BOTH, expand=YES)
+                        self.master.FM3.fm30 = Frame(self.master.FM3)
+                        self.master.FM3.fm30.pack(side=TOP, fill=BOTH, expand=YES)
+                        self.master.FM3.fm30.share2_txt = Label(self.master.FM3.fm30, text="分享圖2")
+                        self.master.FM3.fm30.share2_txt.pack(side=LEFT)
                         self.master.FM3.fm31 = Frame(self.master.FM3)
                         self.master.FM3.fm31.pack(side=TOP, fill=BOTH, expand=YES)
-                        self.master.FM3.fm31.share2_txt = Label(self.master.FM3.fm31, text="分享圖2")
-                        self.master.FM3.fm31.share2_txt.pack(side=TOP)
+                        
                         self.master.FM3.fm31.share2 = Label(self.master.FM3.fm31)
                         self.master.FM3.fm31.share2.pack(side=TOP)
                         self.master.FM3.fm32 = Frame(self.master.FM3)
