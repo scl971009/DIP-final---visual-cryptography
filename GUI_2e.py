@@ -106,7 +106,7 @@ if __name__ == '__main__':
             self.master.FM3.fm31.pack(side=TOP, fill=BOTH, expand=YES)
             self.master.FM3.fm31.sharename_1 = Label(self.master.FM3.fm31, text = "分享圖1")
             self.master.FM3.fm31.sharename_1.pack(side=LEFT)
-            self.master.FM3.fm31.save = Button(self.master.FM3.fm31, text="儲存檔案", command=self.save_1)
+            self.master.FM3.fm31.save = Button(self.master.FM3.fm31, text="儲存分享圖1", command=self.save_1)
             self.master.FM3.fm31.save.pack(side=RIGHT)
 
             self.master.FM3.fm32 = Frame(self.master.FM3)
@@ -118,7 +118,7 @@ if __name__ == '__main__':
             self.master.FM3.fm33.pack(side=TOP, fill=BOTH, expand=YES)
             self.master.FM3.fm33.sharename_2 = Label(self.master.FM3.fm33, text = "分享圖2")
             self.master.FM3.fm33.sharename_2.pack(side=LEFT)
-            self.master.FM3.fm33.save = Button(self.master.FM3.fm33, text="儲存檔案", command=self.save_2)
+            self.master.FM3.fm33.save = Button(self.master.FM3.fm33, text="儲存分享圖2", command=self.save_2)
             self.master.FM3.fm33.save.pack(side=RIGHT)
 
             self.master.FM3.fm34 = Frame(self.master.FM3)
