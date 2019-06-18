@@ -35,7 +35,7 @@ if __name__ == '__main__':
                         self.master.FM1.fm11.button = Button(self.master.FM1.fm11)
                         self.master.FM1.fm11.button["text"] = "選擇檔案"
                         self.master.FM1.fm11.button["command"] = self.choose_input_1
-                        self.master.FM1.fm11.button.pack(side=LEFT)
+                        self.master.FM1.fm11.button.pack(side=RIGHT)
                         self.master.FM1.fm12 = Frame(self.master.FM1)
                         self.master.FM1.fm12.pack(side=TOP, fill=BOTH, expand=YES)
                         self.master.FM1.fm12.imagelabel = Label(self.master.FM1.fm12)
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                         self.master.FM2.fm21.button = Button(self.master.FM2.fm21)
                         self.master.FM2.fm21.button["text"] = "選擇檔案"
                         self.master.FM2.fm21.button["command"] = self.choose_input_2
-                        self.master.FM2.fm21.button.pack(side=LEFT)
+                        self.master.FM2.fm21.button.pack(side=RIGHT)
                         self.master.FM2.fm22 = Frame(self.master.FM2)
                         self.master.FM2.fm22.pack(side=TOP, fill=BOTH, expand=YES)
                         self.master.FM2.fm22.imagelabel = Label(self.master.FM2.fm22)
